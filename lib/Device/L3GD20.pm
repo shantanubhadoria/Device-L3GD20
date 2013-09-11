@@ -28,7 +28,7 @@ has 'I2CBusDevicePath' => (
     $self->Gyroscope->enable();
     $self->Gyroscope->getReading();
 
-This is a object of [[Device::LSM303DLHC::Gyroscope]]
+This is a object of L<Device::L3GD20::Gyroscope>
 
 =cut
 
