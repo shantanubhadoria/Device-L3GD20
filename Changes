@@ -1,5 +1,8 @@
 Changelog for Device-L3GD20
 
+0.003 2013-09-12T09:20:41
+ - Added README.pod and Changes [Shantanu]
+
 0.002 2013-09-11T09:13:46
  - pod fix [Shantanu]
 
