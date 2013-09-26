@@ -5,11 +5,11 @@ package Device::L3GD20;
 # COPYRIGHT
 # VERSION
 
+# Dependencies
 use 5.010;
 use Moose;
 use POSIX
 
-# Dependencies
 use Device::L3GD20::Gyroscope;
 
 has 'I2CBusDevicePath' => (
