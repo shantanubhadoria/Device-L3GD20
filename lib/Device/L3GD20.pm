@@ -8,13 +8,29 @@ package Device::L3GD20;
 # Dependencies
 use 5.010;
 use Moose;
-use POSIX
+use POSIX;
 
 use Device::L3GD20::Gyroscope;
+
+=attr I2CBusDevicePath
+
+this is the device file path for your I2CBus that the L3GD20 is connected on e.g. /dev/i2c-1
+This must be provided during object creation.
+
+=cut
 
 has 'I2CBusDevicePath' => (
     is => 'ro',
 );
+
+=attr Gyroscope
+
+    $self->Gyroscope->enable();
+    $self->Gyroscope->getReading();
+
+This is a object of L<Device::L3GD20::Gyroscope>
+
+=cut
 
 has Gyroscope => (
     is => 'ro',
@@ -25,7 +41,7 @@ has Gyroscope => (
 sub _build_Gyroscope {
     my ($self) = @_;
     my $obj = Device::L3GD20::Gyroscope->new(
-        I2CBusDevicePath => $self->I2CBusDevicePath;
+        I2CBusDevicePath => $self->I2CBusDevicePath,
     );
     return $obj;
 }
