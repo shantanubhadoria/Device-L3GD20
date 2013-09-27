@@ -1,9 +1,9 @@
 use FindBin qw($Bin);
 use lib "$Bin/../lib";
 
-use Device::L3GD20::Gyroscope;
+use Device::Gyroscope::L3GD20;
 
-my $g = Device::L3GD20::Gyroscope->new(
+my $g = Device::Gyroscope::L3GD20->new(
     I2CBusDevicePath => '/dev/i2c-1',
     XZero => -26.99,
     YZero => 7.46,

@@ -1,6 +1,6 @@
-package Device::L3GD20::Gyroscope;
+package Device::Gyroscope::L3GD20;
 
-# PODNAME: Device::L3GD20::Gyroscope
+# PODNAME: Device::Gyroscope::L3GD20
 # ABSTRACT: I2C interface to Gyroscope on the L3GD20 using Device::SMBus
 # COPYRIGHT
 # VERSION
