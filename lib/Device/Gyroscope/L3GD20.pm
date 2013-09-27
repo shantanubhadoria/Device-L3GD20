@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 package Device::Gyroscope::L3GD20;
 
 # PODNAME: Device::Gyroscope::L3GD20
@@ -92,11 +94,32 @@ has timeDrift => (
     default => 0,
 );
 
+=register CTRL_REG1
+
+=register CTRL_REG4
+
+=cut
+
 # Registers for the Gyroscope 
 use constant {
     CTRL_REG1 => 0x20,
     CTRL_REG4 => 0x23,
 };
+
+
+=register OUT_X_H
+
+=register OUT_X_L
+
+=register OUT_Y_H
+
+=register OUT_Y_L
+
+=register OUT_Z_H
+
+=register OUT_Z_L
+
+=cut
 
 # X, Y and Z Axis Gyroscope Data value in 2's complement
 use constant {
@@ -170,6 +193,12 @@ sub getReading {
 sub _typecast_int_to_int16 {
     return  unpack 's' => pack 'S' => $_[1];
 }
+
+=method calibrate
+
+Placeholder for documentation on calibration
+
+=cut
 
 sub calibrate {
     my ($self) =@_;

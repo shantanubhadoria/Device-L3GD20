@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 package Device::L3GD20;
 
 # PODNAME: Device::L3GD20 
