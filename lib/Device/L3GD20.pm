@@ -10,7 +10,7 @@ use 5.010;
 use Moose;
 use POSIX;
 
-use Device::L3GD20::Gyroscope;
+use Device::Gyroscope::L3GD20;
 
 =attr I2CBusDevicePath
 
@@ -28,19 +28,19 @@ has 'I2CBusDevicePath' => (
     $self->Gyroscope->enable();
     $self->Gyroscope->getReading();
 
-This is a object of L<Device::L3GD20::Gyroscope>
+This is a object of L<Device::Gyroscope::L3GD20>
 
 =cut
 
 has Gyroscope => (
     is => 'ro',
-    isa => 'Device::L3GD20::Gyroscope',
+    isa => 'Device::Gyroscope::L3GD20',
     lazy_build => 1,
 );
 
 sub _build_Gyroscope {
     my ($self) = @_;
-    my $obj = Device::L3GD20::Gyroscope->new(
+    my $obj = Device::Gyroscope::L3GD20->new(
         I2CBusDevicePath => $self->I2CBusDevicePath,
     );
     return $obj;
