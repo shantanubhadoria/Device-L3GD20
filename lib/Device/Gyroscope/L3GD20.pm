@@ -18,7 +18,7 @@ extends 'Device::SMBus';
 
 =attr I2CDeviceAddress
 
-Containd the I2CDevice Address for the bus on which your gyroscope is connected. It would look like 0x6b. Default is 0x6b.
+Contains the I2CDevice Address for the bus on which your gyroscope is connected. It would look like 0x6b. Default is 0x6b.
 
 =cut
 
