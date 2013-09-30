@@ -172,13 +172,13 @@ sub getRawReading {
     };
 }
 
-=method getReading
+=method getReadingDegreesPerSecond
 
 Return gyroscope readings in degrees per second
 
 =cut
 
-sub getReading {
+sub getReadingDegreesPerSecond {
     my ($self) = @_;
 
     my $gain = $self->gyroscopeGain;
