@@ -12,7 +12,7 @@ use 5.010;
 use Moose;
 use POSIX;
 
-use Time::HiRes qw(time);
+use Math::Trig  qw(deg2rad);
 
 extends 'Device::SMBus';
 
@@ -38,58 +38,35 @@ has gyroscopeGain => (
     default => 0.07,
 );
 
-=attr XZero
+=attr xZero
     
 This is the raw value for the X axis when the gyro is stationary. This is a part of gyro calibration to get more accurate values for rotation.
 
 =cut
 
-has XZero => (
+has xZero => (
     is      => 'rw',
     default => 0,
 );
 
-=attr YZero
+=attr yZero
     
 This is the raw value for the Y axis when the gyro is stationary. This is a part of gyro calibration to get more accurate values for rotation.
 
 =cut
 
-has YZero => (
+has yZero => (
     is      => 'rw',
     default => 0,
 );
 
-=attr ZZero
+=attr zZero
     
 This is the raw value for the Z axis when the gyro is stationary. This is a part of gyro calibration to get more accurate values for rotation.
 
 =cut
 
-has ZZero => (
-    is      => 'rw',
-    default => 0,
-);
-
-=attr lastReadingTime
-
-Time when the last reading was taken
-
-=cut
-
-has lastReadingTime => (
-    is      => 'rw',
-    default => 0,
-);
-
-=attr timeDrift
-
-time taken between last reading and current reading. 
-Make sure to take atleast two readings before you use this value for any calculations in your program otherwise you will get a bad value in this the first time you read the gyroscope.
-
-=cut
-
-has timeDrift => (
+has zZero => (
     is      => 'rw',
     default => 0,
 );
@@ -154,21 +131,17 @@ sub enable {
 
     $self->getRawReading()
 
-Return raw readings from accelerometer registers. Note that if XZero,YZero or ZZero are set, this function returns the values adjusted from the values at default non rotating state of the gyroscope. Its recommended that you set these values to achieve accurate results from the gyroscope.
+Return raw readings from accelerometer registers. Note that if xZero,yZero or zZero are set, this function returns the values adjusted from the values at default non rotating state of the gyroscope. Its recommended that you set these values to achieve accurate results from the gyroscope.
 
 =cut
 
 sub getRawReading {
     my ($self) = @_;
 
-    my $currentTime = time;
-    $self->timeDrift( $currentTime - $self->lastReadingTime ) if $self->lastReadingTime;
-    $self->lastReadingTime( $currentTime );
-
     return {
-        x => ( $self->_typecast_int_to_int16( $self->readNBytes(OUT_X_L,2) ) ) - $self->XZero,
-        y => ( $self->_typecast_int_to_int16( $self->readNBytes(OUT_Y_L,2) ) ) - $self->YZero,
-        z => ( $self->_typecast_int_to_int16( $self->readNBytes(OUT_Z_L,2) ) ) - $self->ZZero,
+        x => ( $self->_typecast_int_to_int16( $self->readNBytes(OUT_X_L,2) ) ) - $self->xZero,
+        y => ( $self->_typecast_int_to_int16( $self->readNBytes(OUT_Y_L,2) ) ) - $self->yZero,
+        z => ( $self->_typecast_int_to_int16( $self->readNBytes(OUT_Z_L,2) ) ) - $self->zZero,
     };
 }
 
@@ -187,6 +160,24 @@ sub getReadingDegreesPerSecond {
         x => ( $gyro->{x} * $gain ),
         y => ( $gyro->{y} * $gain ),
         z => ( $gyro->{z} * $gain ),
+    };
+}
+
+=method getReadingRadiansPerSecond
+
+Return gyroscope readings in radians per second
+
+=cut
+
+sub getReadingRadiansPerSecond {
+    my ($self) = @_;
+
+    my $gain = $self->gyroscopeGain;
+    my $gyro = $self->getRawReading;
+    return {
+        x => deg2rad( $gyro->{x} * $gain ),
+        y => deg2rad( $gyro->{y} * $gain ),
+        z => deg2rad( $gyro->{z} * $gain ),
     };
 }
 
