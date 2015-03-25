@@ -131,7 +131,7 @@ sub enable {
 
     $self->getRawReading()
 
-Return raw readings from accelerometer registers. Note that if xZero,yZero or zZero are set, this function returns the values adjusted from the values at default non rotating state of the gyroscope. Its recommended that you set these values to achieve accurate results from the gyroscope.
+Return raw readings from registers. Note that if xZero,yZero or zZero are set, this function returns the values adjusted from the values at default non rotating state of the gyroscope. Its recommended that you set these values to achieve accurate results from the gyroscope.
 
 =cut
 
