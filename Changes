@@ -1,6 +1,10 @@
 Changelog for Device-L3GD20
 
-0.008 2015-03-25T07:22:48
+0.009 2015-03-25T07:31:04
+ - Pod errors fixed (Shantanu Bhadoria)
+
+0.008 2015-03-25T07:23:19
+ - v0.008 (Shantanu Bhadoria)
  - Moved extends, added stopwords for spell checks (Shantanu Bhadoria)
 
 0.007 2013-10-05T00:46:59

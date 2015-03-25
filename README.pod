@@ -6,7 +6,7 @@ Device::L3GD20 - I2C interface to L3GD20 3 axis GyroScope using Device::SMBus
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 ATTRIBUTES
 
