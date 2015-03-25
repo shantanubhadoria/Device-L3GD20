@@ -9,11 +9,11 @@ package Device::Gyroscope::L3GD20;
 
 # Dependencies
 use 5.010;
-use Moose;
 use POSIX;
 
 use Math::Trig  qw(deg2rad);
 
+use Moose;
 extends 'Device::SMBus';
 
 =attr I2CDeviceAddress
