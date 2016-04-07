@@ -4,9 +4,23 @@
 
 Device::L3GD20 - I2C interface to L3GD20 3 axis GyroScope using Device::SMBus
 
+
+
+=begin html
+
+<p>
+<img src="https://img.shields.io/badge/perl-5.10+-brightgreen.svg" alt="Requires Perl 5.10+" />
+<a href="https://travis-ci.org/shantanubhadoria/perl-Device-L3GD20"><img src="https://api.travis-ci.org/shantanubhadoria/perl-Device-L3GD20.svg?branch=build/master" alt="Travis status" /></a>
+<a href="http://matrix.cpantesters.org/?dist=Device-L3GD20%200.010"><img src="https://badgedepot.code301.com/badge/cpantesters/Device-L3GD20/0.010" alt="CPAN Testers result" /></a>
+<a href="http://cpants.cpanauthors.org/dist/Device-L3GD20-0.010"><img src="https://badgedepot.code301.com/badge/kwalitee/Device-L3GD20/0.010" alt="Distribution kwalitee" /></a>
+<a href="https://gratipay.com/shantanubhadoria"><img src="https://img.shields.io/gratipay/shantanubhadoria.svg" alt="Gratipay" /></a>
+</p>
+
+=end html
+
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 ATTRIBUTES
 
@@ -45,25 +59,15 @@ L<https://github.com/shantanubhadoria/perl-device-l3gd20>
 
 Shantanu Bhadoria <shantanu at cpan dott org>
 
-=head1 CONTRIBUTORS
+=head1 CONTRIBUTOR
 
-=for stopwords Shantanu Bhadoria
-
-=over 4
-
-=item *
+=for stopwords Shantanu
 
 Shantanu <shantanu@cpan.org>
 
-=item *
-
-Shantanu Bhadoria <shantanu@cpan.org>
-
-=back
-
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Shantanu Bhadoria.
+This software is copyright (c) 2016 by Shantanu Bhadoria.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
